@@ -1,11 +1,149 @@
+import React from "react";
+
 import Container from "../../components/UI/container/container";
 import { Title } from "../../styles";
 
-const Link1 = () => {
+import {
+  Form,
+  Button,
+  ButtonToolbar,
+  Schema,
+  Panel,
+  FlexboxGrid,
+  Drawer,
+} from "rsuite";
+import { JSONTree } from "react-json-tree";
+
+const JSONView = ({ formValue, formError }) => (
+  <div style={{ marginBottom: 10 }}>
+    <Panel className="json-tree-wrapper" header={<p>formValue</p>}>
+      <JSONTree data={formValue} />
+    </Panel>
+
+    <Panel className="json-tree-wrapper" header={<p>formError</p>}>
+      <JSONTree data={formError} />
+    </Panel>
+  </div>
+);
+
+const { StringType, NumberType } = Schema.Types;
+
+const model = Schema.Model({
+  name: StringType().isRequired("This field is required."),
+  email: StringType()
+    .isEmail("Please enter a valid email address.")
+    .isRequired("This field is required."),
+  age: NumberType("Please enter a valid number.").range(
+    18,
+    30,
+    "Please enter a number from 18 to 30"
+  ),
+  password: StringType().isRequired("This field is required."),
+  verifyPassword: StringType()
+    .addRule((value, data) => {
+      console.log(data);
+
+      if (value !== data.password) {
+        return false;
+      }
+
+      return true;
+    }, "The two passwords do not match")
+    .isRequired("This field is required."),
+});
+
+const TextField = React.forwardRef((props, ref) => {
+  const { name, label, accepter, ...rest } = props;
   return (
-    <Container>
-      <Title>This is a link 1 page</Title>
-    </Container>
+    <Form.Group controlId={`${name}-4`} ref={ref}>
+      <Form.ControlLabel>{label} </Form.ControlLabel>
+      <Form.Control name={name} accepter={accepter} {...rest} />
+    </Form.Group>
+  );
+});
+
+const Link1 = () => {
+  const formRef = React.useRef();
+  const [formError, setFormError] = React.useState({});
+  const [formValue, setFormValue] = React.useState({
+    name: "",
+    email: "",
+    age: "",
+    password: "",
+    verifyPassword: "",
+  });
+  const [showDrawer, setshowDrawer] = React.useState(false);
+
+  const handleSubmit = () => {
+    if (!formRef.current.check()) {
+      console.error("Form Error");
+      return;
+    }
+    console.log(formValue, "Form Value");
+  };
+
+  const handleCheckEmail = () => {
+    formRef.current.checkForField("email", (checkResult) => {
+      console.log(checkResult);
+    });
+  };
+
+  return (
+    <>
+      <Container>
+        <Title>Test Form Validation embeded</Title>
+        <FlexboxGrid>
+          <FlexboxGrid.Item colspan={12}>
+            <Form
+              ref={formRef}
+              onChange={setFormValue}
+              onCheck={setFormError}
+              formValue={formValue}
+              model={model}
+            >
+              <TextField name="name" label="Username" />
+              <TextField name="email" label="Email" />
+              <TextField name="age" label="Age" />
+              <TextField
+                name="password"
+                label="Password"
+                type="password"
+                autoComplete="off"
+              />
+              <TextField
+                name="verifyPassword"
+                label="Verify password"
+                type="password"
+                autoComplete="off"
+              />
+
+              <ButtonToolbar>
+                <Button appearance="primary" onClick={handleSubmit}>
+                  Submit
+                </Button>
+
+                <Button onClick={handleCheckEmail}>Check Email</Button>
+                <Button
+                  onClick={() => {
+                    setshowDrawer((current) => !current);
+                  }}
+                >
+                  View form values and errors
+                </Button>
+              </ButtonToolbar>
+            </Form>
+          </FlexboxGrid.Item>
+        </FlexboxGrid>
+        <Drawer
+          open={showDrawer}
+          size="xs"
+          backdrop={true}
+          onClose={() => setshowDrawer(false)}
+        >
+          <JSONView formValue={formValue} formError={formError} />
+        </Drawer>
+      </Container>
+    </>
   );
 };
 

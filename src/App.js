@@ -1,12 +1,19 @@
 import "rsuite/styles/index.less";
 import { Button } from "rsuite";
+import GlobalStyle from "./globalStyles";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <div>
-      <h1>Hellow world!!</h1>
-      <Button appearance="primary"> Hello world </Button>
-    </div>
+    <>
+      <GlobalStyle></GlobalStyle>
+      <Header></Header>
+      <main>
+        Here comes do code
+        <Button>Teste button</Button>
+      </main>
+      <footer>Powered by rfilippis</footer>
+    </>
   );
 }
 

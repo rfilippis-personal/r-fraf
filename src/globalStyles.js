@@ -7,9 +7,20 @@ const GlobalStyle = createGlobalStyle`
     background: white;
     font-family:Helvetica, Sans-Serif, Open-Sans;
   }
+
   main {
     height: 2000px;
   }
+
+  p {
+    margin:5px 0;
+  }
+
+  label {
+    display:block;
+    margin-bottom:4px;
+  }
+
   footer {
     width: 100%;
     background-color: rgba(0,0,0,85);

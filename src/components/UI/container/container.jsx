@@ -4,7 +4,7 @@ const Container = ({ children }) => {
   return (
     <Grid>
       <Row>
-        <Col>{children}</Col>
+        <Col xs={24}>{children}</Col>
       </Row>
     </Grid>
   );

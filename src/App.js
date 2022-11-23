@@ -1,15 +1,12 @@
-import "./App.css";
-import Header from "./components/Header/Header";
-import GlobalStyle from "./globalStyles";
+import "rsuite/styles/index.less";
+import { Button } from "rsuite";
 
 function App() {
   return (
-    <>
-      <GlobalStyle></GlobalStyle>
-      <Header></Header>
-      <main>here's come the page !!!</main>
-      <footer>Powered by rfilippis</footer>
-    </>
+    <div>
+      <h1>Hellow world!!</h1>
+      <Button appearance="primary"> Hello world </Button>
+    </div>
   );
 }
 

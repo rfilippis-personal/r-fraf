@@ -4,9 +4,12 @@ import Logo from "../Logo/logo";
 import { Grid, Row, Col } from "rsuite";
 
 const navLinks = [
-  { name: "Link 1", path: "link1" },
-  { name: "Link 2", path: "link2" },
-  { name: "Link 3", path: "link3" },
+  { name: "React Suit form validation", path: "rsFormValidation" },
+  { name: "Manual Form Validation", path: "manualFormValidation" },
+  {
+    name: "React Suit dinamic form validation",
+    path: "rsDinamicFormValidadtion",
+  },
   { name: "Link 4", path: "link4" },
 ];
 

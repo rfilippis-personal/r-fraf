@@ -33,6 +33,31 @@ const GlobalStyle = createGlobalStyle`
     position: sticky;
     bottom: 0;
   }
+
+  .json-tree-wrapper {
+    background: rgb(0, 43, 54) !important;
+    margin: 20px !important;
+  
+    .rs-panel-header {
+      background: #06232c;
+      border-radius: 6px;
+      color: #fff;
+    }
+  
+    .rs-panel-body {
+      padding: 0 4px 8px 10px;
+    }
+  }
+
+  .rs-form-error-message {
+    filter:none;
+    box-shadow:0px 0px 6px lightgray;
+  }
+
+  // [aria-invalid='true'] {
+  //   border: 1px solid #b40e0e;
+  //   background-color: #fddddd;
+  // }
 `;
 
 export default GlobalStyle;

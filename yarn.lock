@@ -7851,6 +7851,11 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-viewport-list@^6.3.0-beta.0:
+  version "6.3.0-beta.0"
+  resolved "https://registry.yarnpkg.com/react-viewport-list/-/react-viewport-list-6.3.0-beta.0.tgz#ff3418a344acdcecf4752fbbfb69bde8998418f3"
+  integrity sha512-Yu8jkJLWiwOya2rq/rRw26f3XupfCdi5PSp/2bN2HrFRVeeu+WgCNhFC7VrfCIpXYoFHtf6r9Ah9jVRxNk/A7g==
+
 react-window@^1.8.7:
   version "1.8.8"
   resolved "https://registry.yarnpkg.com/react-window/-/react-window-1.8.8.tgz#1b52919f009ddf91970cbdb2050a6c7be44df243"

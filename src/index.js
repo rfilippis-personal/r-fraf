@@ -5,11 +5,15 @@ import ptBR from "rsuite/locales/pt_BR";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout/layout";
 import ErrorPage from "./error-page";
-import RsFormValidation from "./pages/rs-form-validation/rs-form-validation";
+import RsFormValidation, {
+  loader as rsFormValidationLoader,
+} from "./pages/rs-form-validation/rs-form-validation";
 import ManualFormValidation from "./pages/manual-form-validation/manual-form-validation";
 import RSDinamicFormValidadtion from "./pages/rs-form-dinamic-validation/rs-form-dinamic-validation";
 import Home from "./pages/home/home";
-import Link4 from "./pages/Link4/link4";
+import LargeCardsList, {
+  loader as largeCardsListLoader,
+} from "./pages/large-cards-list/large-cards-list";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +29,7 @@ const router = createBrowserRouter([
         path: "rsFormValidation",
         element: <RsFormValidation />,
         errorElement: <div>opsss, error</div>,
+        loader: rsFormValidationLoader,
       },
       {
         path: "manualFormValidation",
@@ -35,8 +40,10 @@ const router = createBrowserRouter([
         element: <RSDinamicFormValidadtion />,
       },
       {
-        path: "link4",
-        element: <Link4 />,
+        path: "largeCardsList",
+        element: <LargeCardsList />,
+        loader: largeCardsListLoader,
+        errorElement: <div>opsss, error</div>,
       },
     ],
   },

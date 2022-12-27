@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
-    height: 2000px;
+    min-height: 1000px;
   }
 
   p {
@@ -32,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     position: sticky;
     bottom: 0;
+    z-index:10;
   }
 
   .json-tree-wrapper {

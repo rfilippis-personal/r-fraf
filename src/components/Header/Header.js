@@ -10,7 +10,7 @@ const navLinks = [
     name: "React Suit dinamic form validation",
     path: "rsDinamicFormValidadtion",
   },
-  { name: "Link 4", path: "link4" },
+  { name: "Large cards list", path: "largeCardsList" },
 ];
 
 const Header = () => {

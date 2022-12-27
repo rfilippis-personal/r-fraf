@@ -12,6 +12,7 @@ const model = Schema.Model({
   age: NumberType("Please enter a valid number.")
     .range(18, 30, "Please enter a number from 18 to 30")
     .isRequired("This field is required."),
+  gender: StringType().isRequired("This field is required."),
   password: StringType().isRequired("This field is required."),
   verifyPassword: StringType()
     .addRule((value, data) => {

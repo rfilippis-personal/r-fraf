@@ -1,0 +1,37 @@
+.input-search {
+  margin: 10px;
+}
+
+.scroll-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.main-panel {
+  width: 300px;
+  margin: 10px;
+}
+
+.main-panel .item {
+  margin: 10px 0;
+}
+
+.main-panel img {
+  width: 300px;
+  height: 200px;
+  object-fit: revert;
+  box-shadow: 0px 1px 5px gray;
+}
+
+.main-panel small label {
+  color: rgb(7, 139, 234);
+}
+
+.main-panel small .value {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 90%;
+  text-overflow: ellipsis;
+  margin-left: 5px;
+}

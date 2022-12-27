@@ -1,13 +1,22 @@
-import React, { useRef, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 
-import { Form, Button, ButtonToolbar, FlexboxGrid, Drawer } from "rsuite";
+import {
+  Form,
+  Button,
+  ButtonToolbar,
+  FlexboxGrid,
+  Drawer,
+  SelectPicker,
+} from "rsuite";
 
 import Container from "../../components/UI/container/container";
 import { Title } from "../../styles";
 
 import RSTextField from "../../components/UI/rsTextField/rsTextField";
-import model from "./form-model";
+import model from "./rs-form-validation-model";
 import JSONTreeView from "../../components/UI/json-tree-view/json-tree";
+import { getGender } from "./rs-form-validation-services";
+import { useLoaderData, defer, Await } from "react-router-dom";
 
 const RsFormValidation = () => {
   const formRef = useRef();
@@ -40,6 +49,8 @@ const RsFormValidation = () => {
     formRef.current.cleanErrors();
   };
 
+  const loaderData = useLoaderData();
+
   return (
     <Container>
       <Title>React Suite Form Validation</Title>
@@ -56,6 +67,33 @@ const RsFormValidation = () => {
             <RSTextField name="name" label="Username" />
             <RSTextField name="email" label="Email" />
             <RSTextField name="age" label="Age" />
+            <Suspense
+              fallback={
+                <RSTextField
+                  name="gender"
+                  label="Gender"
+                  accepter={SelectPicker}
+                  loading
+                  style={{ width: "300px" }}
+                  data={[]}
+                ></RSTextField>
+              }
+            >
+              <Await resolve={loaderData.genders}>
+                {(resolvedGenders) => {
+                  console.log(resolvedGenders);
+                  return (
+                    <RSTextField
+                      name="gender"
+                      label="Gender"
+                      accepter={SelectPicker}
+                      style={{ width: "300px" }}
+                      data={resolvedGenders}
+                    ></RSTextField>
+                  );
+                }}
+              </Await>
+            </Suspense>
             <RSTextField name="password" label="Password" type="password" />
             <RSTextField
               name="verifyPassword"
@@ -88,3 +126,8 @@ const RsFormValidation = () => {
 };
 
 export default RsFormValidation;
+
+export function loader() {
+  const genders = getGender();
+  return defer({ genders });
+}

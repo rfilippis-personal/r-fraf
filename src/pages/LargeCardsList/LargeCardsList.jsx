@@ -3,9 +3,9 @@ import { useLoaderData, defer, Await } from "react-router-dom";
 import ViewportList from "react-viewport-list";
 import { Input, InputGroup, Panel } from "rsuite";
 import SearchIcon from "@rsuite/icons/Search";
-import Container from "../../components/UI/container/container";
-import { Title } from "../../styles";
-import { getCountries } from "./large-cards-list-service";
+import Container from "../../components/UI/Container/Container";
+import { Title } from "../../styles/styles";
+import { getCountries } from "./large-cards-list.service";
 import style from "./large-cards-list.module.css";
 import { useState } from "react";
 

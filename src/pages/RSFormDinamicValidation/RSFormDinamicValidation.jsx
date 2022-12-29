@@ -14,12 +14,12 @@ import PlusIcon from "@rsuite/icons/Plus";
 import MinusIcon from "@rsuite/icons/Minus";
 
 import FlexboxGridItem from "rsuite/esm/FlexboxGrid/FlexboxGridItem";
-import Container from "../../components/UI/container/container";
+import Container from "../../components/UI/Container/Container";
 
-import { Title } from "../../styles";
+import { Title } from "../../styles/styles";
 
-import model from "../rs-form-dinamic-validation/form-model";
-import JSONTreeView from "../../components/UI/json-tree-view/json-tree";
+import model from "../RSFormDinamicValidation/rs-form-dinamic-validation.model";
+import JSONTreeView from "../../components/UI/JSONTreeView/JSONTreeView";
 
 const ErrorMessage = ({ id, children }) => (
   // <span style={{ color: "red" }}>{children}</span>

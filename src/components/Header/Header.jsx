@@ -1,6 +1,6 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { StyledHeader } from "./styles";
-import Logo from "../Logo/logo";
+import Logo from "../Logo/Logo";
 import { Grid, Row, Col } from "rsuite";
 
 const navLinks = [
@@ -19,9 +19,14 @@ const Header = () => {
       <Grid>
         <Row>
           <Col xs={4} sm={4} md={3} lg={2}>
-            <Link to="/">
+            <NavLink
+              to="/"
+              className={({ isActive, isPending }) =>
+                isActive ? "active" : isPending ? "pending" : ""
+              }
+            >
               <Logo></Logo>
-            </Link>
+            </NavLink>
           </Col>
           <Col xs={20} sm={20} md={21} lg={22}>
             <nav>

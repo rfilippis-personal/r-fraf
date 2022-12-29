@@ -9,13 +9,13 @@ import {
   SelectPicker,
 } from "rsuite";
 
-import Container from "../../components/UI/container/container";
-import { Title } from "../../styles";
+import Container from "../../components/UI/Container/Container";
+import { Title } from "../../styles/styles";
 
-import RSTextField from "../../components/UI/rsTextField/rsTextField";
-import model from "./rs-form-validation-model";
-import JSONTreeView from "../../components/UI/json-tree-view/json-tree";
-import { getGender } from "./rs-form-validation-services";
+import RSTextField from "../../components/UI/RSTextField/RSTextField";
+import model from "./rs-form-validation.model";
+import JSONTreeView from "../../components/UI/JSONTreeView/JSONTreeView";
+import { getGender } from "./rs-form-validation.services";
 import { useLoaderData, defer, Await } from "react-router-dom";
 
 const RsFormValidation = () => {

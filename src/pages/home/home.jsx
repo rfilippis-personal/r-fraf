@@ -1,5 +1,5 @@
-import Container from "../../components/UI/container/container";
-import { Title } from "../../styles";
+import Container from "../../components/UI/Container/Container";
+import { Title } from "../../styles/styles";
 
 const Home = () => {
   return (

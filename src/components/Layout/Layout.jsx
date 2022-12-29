@@ -1,13 +1,13 @@
 import "rsuite/styles/index.less";
-import GlobalStyle from "../../globalStyles";
-import Header from "../Header/header";
+import GlobalStyle from "../../styles/globalStyles";
+import Header from "../Header/Header";
 import { Outlet } from "react-router-dom";
 import { Container, Content } from "rsuite";
 
 const Layout = () => {
   return (
     <>
-      <GlobalStyle></GlobalStyle>
+      <GlobalStyle />
       <Container>
         <Header></Header>
         <Content>

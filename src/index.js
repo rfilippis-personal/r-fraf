@@ -3,17 +3,17 @@ import ReactDOM from "react-dom/client";
 import { CustomProvider } from "rsuite";
 import ptBR from "rsuite/locales/pt_BR";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./components/Layout/layout";
+import Layout from "./components/Layout/Layout";
 import ErrorPage from "./error-page";
 import RsFormValidation, {
   loader as rsFormValidationLoader,
-} from "./pages/rs-form-validation/rs-form-validation";
-import ManualFormValidation from "./pages/manual-form-validation/manual-form-validation";
-import RSDinamicFormValidadtion from "./pages/rs-form-dinamic-validation/rs-form-dinamic-validation";
-import Home from "./pages/home/home";
+} from "./pages/RSFormValidation/RSFormValidation";
+import ManualFormValidation from "./pages/ManualFormValidation/ManualFormValidation";
+import RSDinamicFormValidadtion from "./pages/RSFormDinamicValidation/RSFormDinamicValidation";
+import Home from "./pages/Home/Home";
 import LargeCardsList, {
   loader as largeCardsListLoader,
-} from "./pages/large-cards-list/large-cards-list";
+} from "./pages/LargeCardsList/LargeCardsList";
 
 const router = createBrowserRouter([
   {

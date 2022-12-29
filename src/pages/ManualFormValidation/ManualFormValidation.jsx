@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Input } from "rsuite";
-import Container from "../../components/UI/container/container";
-import { Title } from "../../styles";
-import classes from "../manual-form-validation/manual-form-validation.module.css";
+import Container from "../../components/UI/Container/Container";
+import { Title } from "../../styles/styles";
+import classes from "../ManualFormValidation/manual-form-validation.module.css";
 import { Modal, Button } from "rsuite";
 import useInput from "../../hooks/use-input";
 

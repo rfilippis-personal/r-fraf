@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useMatches } from "react-router-dom";
 import { Breadcrumb } from "rsuite";
 import { FaHome } from "react-icons/fa";
-import HomeIcon from "@rsuite/icons/legacy/Home";
 
 const NavLinkAs = React.forwardRef((props, ref) => {
   const { to, as, children, ...rest } = props;

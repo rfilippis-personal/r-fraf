@@ -17,7 +17,6 @@ export const StyledHeader = styled.header`
 
   .active {
     font-weight: 600;
-    text-decoration: underline;
     background-color: #333;
   }
 
@@ -52,7 +51,7 @@ export const StyledHeader = styled.header`
   }
 
   .dropdown.main-active {
-    background-color: #333;
+    // background-color: #333;
     font-weight: 600;
   }
 

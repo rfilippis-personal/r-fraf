@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { CustomProvider } from "rsuite";
 import ptBR from "rsuite/locales/pt_BR";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import ErrorPage from "./error-page";
 import RsFormValidation, {
@@ -30,20 +30,56 @@ const router = createBrowserRouter([
         element: <RsFormValidation />,
         errorElement: <div>opsss, error</div>,
         loader: rsFormValidationLoader,
+        handle: {
+          // you can put whatever you want on a route handle
+          // here we use "crumb" and return some elements,
+          // this is what we'll render in the breadcrumbs
+          // for this route
+          crumb: () => (
+            <Link to="/rsFormValidation">React Suit form validation</Link>
+          ),
+        },
       },
       {
         path: "manualFormValidation",
         element: <ManualFormValidation />,
+        handle: {
+          // you can put whatever you want on a route handle
+          // here we use "crumb" and return some elements,
+          // this is what we'll render in the breadcrumbs
+          // for this route
+          crumb: () => (
+            <Link to="/manualFormValidation">Manual Form Validation</Link>
+          ),
+        },
       },
       {
         path: "rsDinamicFormValidadtion",
         element: <RSDinamicFormValidadtion />,
+        handle: {
+          // you can put whatever you want on a route handle
+          // here we use "crumb" and return some elements,
+          // this is what we'll render in the breadcrumbs
+          // for this route
+          crumb: () => (
+            <Link to="/rsDinamicFormValidadtion">
+              React Suit dinamic form validation
+            </Link>
+          ),
+        },
       },
       {
         path: "largeCardsList",
         element: <LargeCardsList />,
         loader: largeCardsListLoader,
         errorElement: <div>opsss, error</div>,
+        handle: {
+          // you can put whatever you want on a route handle
+          // here we use "crumb" and return some elements,
+          // this is what we'll render in the breadcrumbs
+          // for this route
+          crumb: () => <Link to="/largeCardsList">Large cards list</Link>,
+        },
       },
     ],
   },

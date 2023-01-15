@@ -81,7 +81,6 @@ const RsFormValidation = () => {
             >
               <Await resolve={loaderData.genders}>
                 {(resolvedGenders) => {
-                  console.log(resolvedGenders);
                   return (
                     <RSTextField
                       name="gender"

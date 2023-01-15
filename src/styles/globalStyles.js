@@ -55,6 +55,16 @@ const GlobalStyle = createGlobalStyle`
     box-shadow:0px 0px 6px lightgray;
   }
 
+  .rs-breadcrumb {
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+
+  .fa-align {
+    margin-bottom: -1px;
+    margin-right: 3px;
+  }
+
   // [aria-invalid='true'] {
   //   border: 1px solid #b40e0e;
   //   background-color: #fddddd;

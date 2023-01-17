@@ -14,6 +14,7 @@ import Home from "./pages/Home/Home";
 import LargeCardsList, {
   loader as largeCardsListLoader,
 } from "./pages/LargeCardsList/LargeCardsList";
+import BlankForTraning from "./pages/BlankForTraning/BlankForTraning";
 
 const router = createBrowserRouter([
   {
@@ -44,10 +45,6 @@ const router = createBrowserRouter([
         path: "manualFormValidation",
         element: <ManualFormValidation />,
         handle: {
-          // you can put whatever you want on a route handle
-          // here we use "crumb" and return some elements,
-          // this is what we'll render in the breadcrumbs
-          // for this route
           crumb: () => (
             <Link to="/manualFormValidation">Manual Form Validation</Link>
           ),
@@ -57,10 +54,6 @@ const router = createBrowserRouter([
         path: "rsDinamicFormValidadtion",
         element: <RSDinamicFormValidadtion />,
         handle: {
-          // you can put whatever you want on a route handle
-          // here we use "crumb" and return some elements,
-          // this is what we'll render in the breadcrumbs
-          // for this route
           crumb: () => (
             <Link to="/rsDinamicFormValidadtion">
               React Suit dinamic form validation
@@ -74,11 +67,15 @@ const router = createBrowserRouter([
         loader: largeCardsListLoader,
         errorElement: <div>opsss, error</div>,
         handle: {
-          // you can put whatever you want on a route handle
-          // here we use "crumb" and return some elements,
-          // this is what we'll render in the breadcrumbs
-          // for this route
           crumb: () => <Link to="/largeCardsList">Large cards list</Link>,
+        },
+      },
+      {
+        path: "blankForTraning",
+        element: <BlankForTraning />,
+        errorElement: <div>opsss, error</div>,
+        handle: {
+          crumb: () => <Link to="/blankForTraning">Blank For Training</Link>,
         },
       },
     ],

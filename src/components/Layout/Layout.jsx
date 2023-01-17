@@ -9,7 +9,7 @@ const Layout = () => {
     <>
       <GlobalStyle />
       <Container>
-        <Header></Header>
+        <Header />
         <Content>
           <Outlet />
         </Content>

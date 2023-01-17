@@ -30,6 +30,7 @@ const navLinks = [
     ],
   },
   { name: "Large cards list", path: "largeCardsList", parent: "" },
+  { name: "Blank For Training", path: "blankForTraning", parent: "" },
 ];
 
 const Header = () => {
@@ -103,7 +104,11 @@ const Header = () => {
                             to={navInfo.path}
                             onClick={linkClickHandler}
                             className={({ isActive, isPending }) =>
-                              isActive ? "active" : isPending ? "pending" : ""
+                              isActive
+                                ? "child-active"
+                                : isPending
+                                ? "pending"
+                                : ""
                             }
                           >
                             {navInfo.name}

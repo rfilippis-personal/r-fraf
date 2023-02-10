@@ -65,6 +65,26 @@ const GlobalStyle = createGlobalStyle`
     margin-right: 3px;
   }
 
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .displayScrollTable {
+    .rs-table-scrollbar-vertical {
+      display: none;
+    }
+  }
+
+  .rs-loader-backdrop {
+    position: fixed;
+  }
+
+  .button-with-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   // [aria-invalid='true'] {
   //   border: 1px solid #b40e0e;
   //   background-color: #fddddd;

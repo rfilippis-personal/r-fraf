@@ -30,7 +30,7 @@ const navLinks = [
     ],
   },
   { name: "Large cards list", path: "largeCardsList", parent: "" },
-  { name: "Blank For Training", path: "blankForTraning", parent: "" },
+  { name: "Blank For Training", path: "blankForTraining", parent: "" },
 ];
 
 const Header = () => {

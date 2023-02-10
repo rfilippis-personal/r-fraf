@@ -14,7 +14,11 @@ import Home from "./pages/Home/Home";
 import LargeCardsList, {
   loader as largeCardsListLoader,
 } from "./pages/LargeCardsList/LargeCardsList";
-import BlankForTraning from "./pages/BlankForTraning/BlankForTraning";
+import BlankForTrainingFormDefered, {
+  loader as BlankForTraningFormLoader,
+} from "./pages/BlankForTraining/BlankForTrainingFormDefered";
+import LayoutBlankForTraining from "./pages/BlankForTraining/Layout";
+import BlankForTrainingMain from "./pages/BlankForTraining/BlankForTrainingMain";
 
 const router = createBrowserRouter([
   {
@@ -71,12 +75,42 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "blankForTraning",
-        element: <BlankForTraning />,
+        path: "blankForTraining",
+        element: <LayoutBlankForTraining />,
         errorElement: <div>opsss, error</div>,
         handle: {
-          crumb: () => <Link to="/blankForTraning">Blank For Training</Link>,
+          crumb: () => <Link to="/blankForTraining">Blank For Training</Link>,
         },
+        children: [
+          {
+            index: true,
+            element: <BlankForTrainingMain />,
+          },
+          {
+            path: ":blankForTrainingId",
+            element: <BlankForTrainingFormDefered />,
+            errorElement: <div>opsss, error</div>,
+            loader: BlankForTraningFormLoader,
+            handle: {
+              crumb: (data) => (
+                <Link to={`/blankForTraining/${data.id}`}>
+                  Blank For Training {data.id}
+                </Link>
+              ),
+            },
+          },
+          {
+            path: "new",
+            element: <BlankForTrainingFormDefered />,
+            errorElement: <div>opsss, error</div>,
+            loader: BlankForTraningFormLoader,
+            handle: {
+              crumb: (data) => (
+                <Link to={`/blankForTrainingnew`}>Blank For Training new</Link>
+              ),
+            },
+          },
+        ],
       },
     ],
   },
@@ -84,9 +118,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
-  <CustomProvider locale={ptBR}>
-    <RouterProvider router={router} />
-  </CustomProvider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <CustomProvider locale={ptBR}>
+      <RouterProvider router={router} />
+    </CustomProvider>
+  </React.StrictMode>
 );

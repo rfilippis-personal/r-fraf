@@ -36,7 +36,7 @@ function Breadcrumbs() {
           <Breadcrumb.Item
             key={index}
             to={crumb.props.to}
-            active={crumb.length - 1 !== index}
+            active={index === crumbs.length - 1}
             as={NavLinkAs}
           >
             {crumb.props.children}

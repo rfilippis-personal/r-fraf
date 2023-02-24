@@ -8,6 +8,7 @@ import PlusIcon from "@rsuite/icons/Plus";
 
 import { Table, Button } from "rsuite";
 import { useNavigate } from "react-router-dom";
+import classes from "./blankForTraining.module.css";
 
 const { Column, HeaderCell, Cell } = Table;
 const users = mockUsers(10);
@@ -77,13 +78,9 @@ const BlankForTrainingMain = () => {
       </AvatarGroup>
 
       <Divider>Table with sort</Divider>
+
       <div style={{ textAlign: "right" }}>
-        <Button
-          type="button"
-          onClick={addDataHandler}
-          className="button-with-icon"
-          style={{ textAlign: "right" }}
-        >
+        <Button type="button" onClick={addDataHandler} className="button-with-icon" style={{ textAlign: "right" }}>
           <PlusIcon className="fa-align" /> Add new data
         </Button>
       </div>
@@ -137,7 +134,7 @@ const BlankForTrainingMain = () => {
         </Column>
       </Table>
 
-      <Divider>Simple table</Divider>
+      <Divider className={classes["divider-more-margin"]}>Simple table</Divider>
       <Table
         // height={400}
         autoHeight
@@ -185,10 +182,7 @@ const BlankForTrainingMain = () => {
 
           <Cell style={{ padding: "6px" }}>
             {(rowData) => (
-              <Button
-                appearance="link"
-                onClick={() => alert(`id:${rowData.id}`)}
-              >
+              <Button appearance="link" onClick={() => alert(`id:${rowData.id}`)}>
                 Edit
               </Button>
             )}

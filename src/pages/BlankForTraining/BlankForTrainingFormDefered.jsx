@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Await, defer, useLoaderData } from "react-router-dom";
 import { Loader } from "rsuite";
-import { getDataById, getEmptyData } from "./BlankForTraining.services";
+import { getDataById, getEmptyData } from "./blankForTraining.services";
 import BlankForTraningForm from "./BlankForTrainingForm";
 
 const BlankForTrainingFormDefered = () => {
@@ -11,20 +11,11 @@ const BlankForTrainingFormDefered = () => {
       fallback={
         <>
           <BlankForTraningForm formInfo={null} />
-          <Loader
-            speed="fast"
-            size="md"
-            backdrop
-            content="loading..."
-            vertical
-          />
+          <Loader speed="fast" size="md" backdrop content="loading..." vertical />
         </>
       }
     >
-      <Await
-        resolve={formInfo.data}
-        errorElement={<h1>Error loading data info</h1>}
-      >
+      <Await resolve={formInfo.data} errorElement={<h1>Error loading data info</h1>}>
         {(formInfo) => <BlankForTraningForm formInfo={formInfo} />}
       </Await>
     </Suspense>

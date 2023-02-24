@@ -10,6 +10,7 @@ const model = Schema.Model({
   age: NumberType("Please enter a valid number.").isRequired(
     "This field is required."
   ),
+  cpfCnpj: StringType().isRequired("This field is required."),
   city: StringType().isRequired("This field is required."),
   street: StringType().isRequired("This field is required."),
   email: StringType()

@@ -15,29 +15,17 @@ const Home = () => {
           </a>
         </li>
         <li>
-          <a
-            href="https://rsuitejs.com/components/overview/"
-            rel="noreferrer"
-            target="_blank"
-          >
+          <a href="https://rsuitejs.com/components/overview/" rel="noreferrer" target="_blank">
             React Suit v5
           </a>
         </li>
         <li>
-          <a
-            href="https://styled-components.com"
-            rel="noreferrer"
-            target="_blank"
-          >
+          <a href="https://styled-components.com" rel="noreferrer" target="_blank">
             Styled Components v5
           </a>
         </li>
         <li>
-          <a
-            href="https://reactrouter.com/en/main/start/overview"
-            rel="noreferrer"
-            target="_blank"
-          >
+          <a href="https://reactrouter.com/en/main/start/overview" rel="noreferrer" target="_blank">
             React router dom v6
           </a>
         </li>

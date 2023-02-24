@@ -10,7 +10,7 @@ import ManualFormValidation, {
   loader as manualFormValidationLoader,
 } from "./pages/ManualFormValidation/ManualFormValidation";
 import RSDinamicFormValidadtion from "./pages/RSFormDinamicValidation/RSFormDinamicValidation";
-import Home from "./pages/Home/Home";
+import Home from "./pages/Home/home";
 import LargeCardsList, { loader as largeCardsListLoader } from "./pages/LargeCardsList/LargeCardsList";
 import BlankForTrainingFormDefered, {
   loader as BlankForTraningFormLoader,

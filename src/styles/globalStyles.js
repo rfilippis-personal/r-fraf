@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
 
   .json-tree-wrapper {
     background: rgb(0, 43, 54) !important;
-    margin: 20px !important;
+    /* margin: 20px !important; */
   
     .rs-panel-header {
       background: #06232c;
@@ -83,6 +83,10 @@ const GlobalStyle = createGlobalStyle`
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .select-picker-custom-style.rs-picker-has-value .rs-btn .rs-picker-toggle-value, .rs-picker-has-value .rs-picker-toggle .rs-picker-toggle-value {
+    color: var(--rs-text-primary);
   }
 
   // [aria-invalid='true'] {

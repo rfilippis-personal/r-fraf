@@ -22,11 +22,20 @@
   max-width: 100%;
 }
 
-/* .form-control input:focus {
+.form-control .input-number-container {
+  width: 5rem;
+  border-radius: 4px;
+}
+
+.form-control .input-number-container input {
+  width: 100%;
+}
+
+.form-control input:focus {
   outline: none;
   border-color: #2868cf;
   background-color: #dcd6ea;
-} */
+}
 
 .control-group {
   display: flex;
@@ -63,16 +72,22 @@ button:active {
   margin-left: 1rem;
 } */
 
-.invalid input {
+.invalid input,
+.invalid [role="combobox"],
+.invalid .input-number-container {
   border: 1px solid #b40e0e;
-  background-color: #fddddd;
+  background-color: #fddddd !important;
 }
 
-.invalid input:focus {
+.invalid input:focus .invalid input:focus {
   border-color: #ff8800;
   background-color: #fbe8d2;
 }
 
 .error-text {
   color: #b40e0e;
+}
+
+.select-picker-custom-style {
+  width: 320px;
 }

@@ -5,15 +5,13 @@ import ptBR from "rsuite/locales/pt_BR";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import ErrorPage from "./error-page";
-import RsFormValidation, {
-  loader as rsFormValidationLoader,
-} from "./pages/RSFormValidation/RSFormValidation";
-import ManualFormValidation from "./pages/ManualFormValidation/ManualFormValidation";
+import RsFormValidation, { loader as rsFormValidationLoader } from "./pages/RSFormValidation/RSFormValidation";
+import ManualFormValidation, {
+  loader as manualFormValidationLoader,
+} from "./pages/ManualFormValidation/ManualFormValidation";
 import RSDinamicFormValidadtion from "./pages/RSFormDinamicValidation/RSFormDinamicValidation";
 import Home from "./pages/Home/Home";
-import LargeCardsList, {
-  loader as largeCardsListLoader,
-} from "./pages/LargeCardsList/LargeCardsList";
+import LargeCardsList, { loader as largeCardsListLoader } from "./pages/LargeCardsList/LargeCardsList";
 import BlankForTrainingFormDefered, {
   loader as BlankForTraningFormLoader,
 } from "./pages/BlankForTraining/BlankForTrainingFormDefered";
@@ -40,29 +38,22 @@ const router = createBrowserRouter([
           // here we use "crumb" and return some elements,
           // this is what we'll render in the breadcrumbs
           // for this route
-          crumb: () => (
-            <Link to="/rsFormValidation">React Suit form validation</Link>
-          ),
+          crumb: () => <Link to="/rsFormValidation">React Suit form validation</Link>,
         },
       },
       {
         path: "manualFormValidation",
         element: <ManualFormValidation />,
+        loader: manualFormValidationLoader,
         handle: {
-          crumb: () => (
-            <Link to="/manualFormValidation">Manual Form Validation</Link>
-          ),
+          crumb: () => <Link to="/manualFormValidation">Manual Form Validation</Link>,
         },
       },
       {
         path: "rsDinamicFormValidadtion",
         element: <RSDinamicFormValidadtion />,
         handle: {
-          crumb: () => (
-            <Link to="/rsDinamicFormValidadtion">
-              React Suit dinamic form validation
-            </Link>
-          ),
+          crumb: () => <Link to="/rsDinamicFormValidadtion">React Suit dinamic form validation</Link>,
         },
       },
       {
@@ -92,11 +83,7 @@ const router = createBrowserRouter([
             errorElement: <div>opsss, error</div>,
             loader: BlankForTraningFormLoader,
             handle: {
-              crumb: (data) => (
-                <Link to={`/blankForTraining/${data.id}`}>
-                  Blank For Training {data.id}
-                </Link>
-              ),
+              crumb: (data) => <Link to={`/blankForTraining/${data.id}`}>Blank For Training {data.id}</Link>,
             },
           },
           {
@@ -105,9 +92,7 @@ const router = createBrowserRouter([
             errorElement: <div>opsss, error</div>,
             loader: BlankForTraningFormLoader,
             handle: {
-              crumb: (data) => (
-                <Link to={`/blankForTrainingnew`}>Blank For Training new</Link>
-              ),
+              crumb: (data) => <Link to={`/blankForTrainingnew`}>Blank For Training new</Link>,
             },
           },
         ],

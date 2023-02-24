@@ -1,15 +1,6 @@
 import React from "react";
 
-import {
-  Form,
-  Button,
-  ButtonGroup,
-  InputNumber,
-  Input,
-  FlexboxGrid,
-  IconButton,
-  ButtonToolbar,
-} from "rsuite";
+import { Form, Button, ButtonGroup, InputNumber, Input, FlexboxGrid, IconButton, ButtonToolbar, Affix } from "rsuite";
 import PlusIcon from "@rsuite/icons/Plus";
 import MinusIcon from "@rsuite/icons/Minus";
 
@@ -36,21 +27,12 @@ const ErrorMessage = ({ id, children }) => (
   </div>
 );
 const Cell = ({ children, style, ...rest }) => (
-  <td
-    style={{ padding: "2px 4px 2px 0", verticalAlign: "top", ...style }}
-    {...rest}
-  >
+  <td style={{ padding: "2px 4px 2px 0", verticalAlign: "top", ...style }} {...rest}>
     {children}
   </td>
 );
 
-const ProductItem = ({
-  rowValue = {},
-  onChange,
-  rowIndex,
-  rowError,
-  formSubmited,
-}) => {
+const ProductItem = ({ rowValue = {}, onChange, rowIndex, rowError, formSubmited }) => {
   const handleChangeName = (value) => {
     onChange(rowIndex, { ...rowValue, name: value });
   };
@@ -62,31 +44,17 @@ const ProductItem = ({
     <tr>
       <Cell>
         <div className="rs-form-control rs-form-control-wrapper">
-          <Input
-            value={rowValue.name}
-            onChange={handleChangeName}
-            style={{ width: 196 }}
-          />
+          <Input value={rowValue.name} onChange={handleChangeName} style={{ width: 196 }} />
           {rowError?.name.hasError && (formSubmited || rowValue.name) ? (
-            <ErrorMessage id={`product-name-${rowIndex}`}>
-              {rowError.name.errorMessage}
-            </ErrorMessage>
+            <ErrorMessage id={`product-name-${rowIndex}`}>{rowError.name.errorMessage}</ErrorMessage>
           ) : null}
         </div>
       </Cell>
       <Cell>
         <div className="rs-form-control rs-form-control-wrapper">
-          <InputNumber
-            min={0}
-            value={rowValue.quantity}
-            onChange={handleChangeAmount}
-            style={{ width: 100 }}
-          />
-          {rowError?.quantity?.hasError &&
-          (formSubmited || rowValue.quantity) ? (
-            <ErrorMessage id={`product-amount-${rowIndex}`}>
-              {rowError.quantity.errorMessage}
-            </ErrorMessage>
+          <InputNumber min={0} value={rowValue.quantity} onChange={handleChangeAmount} style={{ width: 100 }} />
+          {rowError?.quantity?.hasError && (formSubmited || rowValue.quantity) ? (
+            <ErrorMessage id={`product-amount-${rowIndex}`}>{rowError.quantity.errorMessage}</ErrorMessage>
           ) : null}
         </div>
       </Cell>
@@ -94,12 +62,7 @@ const ProductItem = ({
   );
 };
 
-const ProductInputControl = ({
-  value = [],
-  onChange,
-  fieldError,
-  formSubmited,
-}) => {
+const ProductInputControl = ({ value = [], onChange, fieldError, formSubmited }) => {
   const errors = fieldError ? fieldError.array : [];
   const products = value;
   const handleChangeProducts = (nextProducts) => {
@@ -162,6 +125,7 @@ const RSDinamicFormValidadtion = () => {
 
   const cleanValidationsHandler = () => {
     setSubmit(false);
+    setFormError({});
     formRef.current.cleanErrors();
   };
 
@@ -203,14 +167,14 @@ const RSDinamicFormValidadtion = () => {
               <Button appearance="primary" type="submit">
                 Submit
               </Button>
-              <Button onClick={cleanValidationsHandler}>
-                Clean validations
-              </Button>
+              <Button onClick={cleanValidationsHandler}>Clean validations</Button>
             </ButtonToolbar>
           </Form>
         </FlexboxGridItem>
         <FlexboxGrid.Item colspan={12}>
-          <JSONTreeView formValue={formValue} formError={formError} />
+          <Affix top={90}>
+            <JSONTreeView formValue={formValue} formError={formError} />
+          </Affix>
         </FlexboxGrid.Item>
       </FlexboxGrid>
     </Container>

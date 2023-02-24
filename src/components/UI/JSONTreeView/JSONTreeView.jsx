@@ -3,15 +3,18 @@ import { Panel } from "rsuite";
 
 const JSONTreeView = ({ formValue, formError }) => {
   return (
-    <div style={{ marginBottom: 10 }}>
-      <Panel className="json-tree-wrapper" header={<p>formValue</p>}>
-        <JSONTree data={formValue} />
-      </Panel>
-
-      <Panel className="json-tree-wrapper" header={<p>formError</p>}>
-        <JSONTree data={formError} />
-      </Panel>
-    </div>
+    <>
+      <div>
+        <Panel className="json-tree-wrapper" header={<p>formValue</p>}>
+          <JSONTree data={formValue} />
+        </Panel>
+      </div>
+      <div style={{ marginTop: "20px" }}>
+        <Panel className="json-tree-wrapper" header={<p>formError</p>}>
+          <JSONTree data={formError} />
+        </Panel>
+      </div>
+    </>
   );
 };
 

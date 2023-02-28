@@ -213,8 +213,7 @@ const ManualFormValidation = () => {
                     value={enteredUf}
                     onChange={ufInputChangeHandler}
                     onBlur={ufInputBlurHandler}
-                    data={resolvedUfs}
-                  ></SelectPicker>
+                    data={resolvedUfs}></SelectPicker>
                 );
               }}
             </Await>
@@ -234,8 +233,7 @@ const ManualFormValidation = () => {
               virtualized
               onChange={cityInputChangeHandler}
               onBlur={cityInputBlurHandler}
-              data={cities}
-            ></SelectPicker>
+              data={cities}></SelectPicker>
           )}
           {enteredCityHasError && <p className={classes["error-text"]}>City must not be empty.</p>}
         </div>

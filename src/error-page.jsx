@@ -1,25 +1,27 @@
 import { useRouteError } from "react-router-dom";
+import { Message } from "rsuite";
 import Header from "./components/Header/Header";
-import Container from "./components/UI/Container/Container";
 import GlobalStyle from "./styles/globalStyles";
 
 export default function ErrorPage() {
   const error = useRouteError();
-  console.error(error);
 
   return (
     <>
       <GlobalStyle />
       <Header />
-      <Container>
+      <Message type="error" showIcon header="Oops!">
         <div id="error-page">
-          <h1>Oops!</h1>
-          <p>Sorry, an unexpected error has occurred.</p>
+          <h6>
+            <i>Sorry, an unexpected error has occurred.</i>
+          </h6>
           <p>
-            <i>{error.statusText || error.message}</i>
+            <b>
+              Error: <i style={{ color: "#B94339" }}>{error.statusText || error.message}</i>
+            </b>
           </p>
         </div>
-      </Container>
+      </Message>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import StringMask from "string-mask";
-import React, { useCallback, useLayoutEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Input } from "rsuite";
 
 const DELIMITERS = [".", "-", "/"];
@@ -20,7 +20,7 @@ const InputMaskCpfCnpj = React.forwardRef((props, ref) => {
     return removeTrailingCharIfFound(formatted.result, DELIMITERS);
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (value) {
       const formatedValue = formatValue(value);
       onChange(formatedValue);

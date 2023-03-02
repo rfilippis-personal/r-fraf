@@ -14,6 +14,7 @@ const NavLinkAs = React.forwardRef((props, ref) => {
 
 function Breadcrumbs() {
   let matches = useMatches();
+
   let crumbs = matches
     // first get rid of any matches that don't have handle and crumb
     .filter((match) => Boolean(match.handle?.crumb))
@@ -22,23 +23,13 @@ function Breadcrumbs() {
     .map((match) => match.handle.crumb(match.data));
   return (
     <Breadcrumb>
-      <Breadcrumb.Item
-        icon={<FaHome />}
-        as={NavLinkAs}
-        to="/"
-        active={crumbs.length === 0}
-      >
+      <Breadcrumb.Item icon={<FaHome />} as={NavLinkAs} to="/" active={crumbs.length === 0}>
         <FaHome className="fa-align" />
         <span>Home</span>
       </Breadcrumb.Item>
       {crumbs.map((crumb, index) => {
         return (
-          <Breadcrumb.Item
-            key={index}
-            to={crumb.props.to}
-            active={index === crumbs.length - 1}
-            as={NavLinkAs}
-          >
+          <Breadcrumb.Item key={index} to={crumb.props.to} active={index === crumbs.length - 1} as={NavLinkAs}>
             {crumb.props.children}
           </Breadcrumb.Item>
         );

@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Breadcrumbs from "./Breadcrumbs";
 
-// Set up a mock version of useMatches()
 jest.mock("react-router-dom", () => ({
   useMatches: () => {
     return [
@@ -11,17 +10,19 @@ jest.mock("react-router-dom", () => ({
   },
 }));
 
-describe("Breadcrumbs should render with a nav object ", () => {
+describe("Breadcrumbs tests", () => {
   render(<Breadcrumbs />);
-  const BreadcrumbsElement = screen.queryByRole("navigation");
+  const breadcrumbsElement = screen.queryByRole("navigation");
 
-  it("Breadcrumbs should render correctly", () => {
-    expect(BreadcrumbsElement).toBeInTheDocument();
+  it("Should render correctly", () => {
+    expect(breadcrumbsElement).toBeInTheDocument();
   });
 
-  it("should render a nav component with a class rs-breadcrumb", () => {
-    render(<Breadcrumbs />);
-    const BreadcrumbsElement = screen.queryByRole("navigation");
-    expect(BreadcrumbsElement.classList.contains("rs-breadcrumb")).toBeTruthy();
+  it("Should render a nav component with a class rs-breadcrumb", () => {
+    expect(breadcrumbsElement.className === "rs-breadcrumb").toBeTruthy();
+  });
+
+  it("Should have a length equal to one on start state", () => {
+    expect(breadcrumbsElement.childNodes.length).toBe(1);
   });
 });

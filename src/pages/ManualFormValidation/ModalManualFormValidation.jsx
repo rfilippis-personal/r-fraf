@@ -1,4 +1,5 @@
 import { Button, Modal } from "rsuite";
+import classes from "./ModalManualFormValidation.module.css";
 
 const ModalManualFormValidation = (props) => {
   const { open, handleClose, handleCancel, enteredFirstName, enteredLastName, age, uf, city, onOpen } = props;
@@ -8,21 +9,23 @@ const ModalManualFormValidation = (props) => {
         <Modal.Title>Your Info is</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>
-          <b>First name:</b> {enteredFirstName}
-        </p>
-        <p>
-          <b>Last name:</b> {enteredLastName}
-        </p>
-        <p>
-          <b>Age:</b> {age}
-        </p>
-        <p>
-          <b>Uf:</b> {uf}
-        </p>
-        <p>
-          <b>city:</b> {city}
-        </p>
+        <main className={classes.main}>
+          <p>
+            <b>First name:</b> {enteredFirstName}
+          </p>
+          <p>
+            <b>Last name:</b> {enteredLastName}
+          </p>
+          <p>
+            <b>Age:</b> {age}
+          </p>
+          <p>
+            <b>Uf:</b> {uf}
+          </p>
+          <p>
+            <b>city:</b> {city}
+          </p>
+        </main>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleCancel} appearance="subtle">

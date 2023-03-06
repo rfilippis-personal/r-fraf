@@ -9,7 +9,8 @@ import model from "./blankForTrainingForm.model";
 import { BsSave } from "react-icons/bs";
 import { MdOutlineCancel } from "react-icons/md";
 import InputMask from "../../components/UI/InputMaskCpfCnpj/InputMaskCpfCnpj";
-import scrollTo from "../../utils/scrollTo.util";
+import { scrollToAnimatedSmooth } from "../../utils/scrollTo.util";
+// import { scrollToAnimatedStandard } from "../../utils/scrollTo.util";
 import { getFirstFormErrorKey } from "../../utils/rsForm.util";
 
 const InputMaskCpfCnpj = React.forwardRef((props, ref) => {
@@ -45,7 +46,8 @@ const BlankForTraningForm = ({ formInfo }) => {
           There are fields invalid, please check the form
         </Message>
       );
-      scrollTo(110).elementId(getFirstFormErrorKey(model, formValue));
+      scrollToAnimatedSmooth(120).elementId(getFirstFormErrorKey(model, formValue));
+      // scrollToAnimatedStandard(110).elementId(getFirstFormErrorKey(model, formValue));
       return;
     }
 

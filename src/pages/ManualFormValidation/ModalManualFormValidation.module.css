@@ -1,0 +1,16 @@
+.main {
+  overflow: auto;
+  min-height: 140px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.main p {
+  border-bottom: 1px solid whitesmoke;
+  padding-bottom: 5px;
+}
+
+.main p b {
+  color: gray;
+  font-weight: 300;
+}
